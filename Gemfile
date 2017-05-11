@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem 'rb-readline'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #added gems
 gem 'bootstrap', '~> 4.0.0alpha3.1'
 gem 'react-rails'
+gem 'therubyracer'
+gem 'coffee-script-source', '~> 1.12.2'
+gem 'execjs'

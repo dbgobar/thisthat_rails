@@ -14,8 +14,9 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  private
-  def post_params
-    params, require(:post).permit(:description)
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    head :no_content
   end
 end

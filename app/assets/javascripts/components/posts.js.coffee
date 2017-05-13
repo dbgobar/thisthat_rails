@@ -6,7 +6,12 @@
   addPost: (post) ->
     posts = @state.posts.slice()
     posts.push post
-    @setState posts: posts 
+    @setState posts: posts
+  deletePost: (post) ->
+    posts = @state.posts.slice()
+    index = lifts.indexOf post
+    posts.splice index, 1
+    @replaceState posts: posts
   render: ->
       React.DOM.div
         className: 'posts'
@@ -15,9 +20,10 @@
             'Posts'
         React.createElement PostForm, handleNewPost: @addPost
         React.DOM.table
-            classname: 'table table-bordered'
+            className: 'table table-bordered'
             React.DOM.thead null
               React.DOM.th null, 'Description'
+              React.DOM.th null, 'Actions'
             React.DOM.tbody null,
               for post in @state.posts
-                React.createdElement Post, key: post.id, post: post
+                React.createElement Post, key: post.id, post: post, handleDeletePost: @deletePost
